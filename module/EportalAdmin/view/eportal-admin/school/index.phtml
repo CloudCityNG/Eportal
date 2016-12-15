@@ -1,0 +1,14 @@
+<h2> <?php $property = $this->school->getProperty()->getName();
+echo $this->escapeHtml(ucfirst($property))
+?> </h2>
+<?php if ($this->hasParam): ?>
+    <h3><?php $this->escapeHtml($this->ucfirst($this->school->getValue())) ?></h3>
+    <?php
+    $model = array(
+        array('propertyValues' => $this->subjects, 'property' => $property),
+        array('propertyValues' => $this->sections, 'property' => $property),
+        array('propertyValues' => $this->classes, 'property' => $property)
+    );
+    echo $this->partialLoop('propertyValuePartials.phtml', $model);
+    ?>
+ <?php endif;

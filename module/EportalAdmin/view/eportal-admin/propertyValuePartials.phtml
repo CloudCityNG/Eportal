@@ -1,0 +1,10 @@
+<?php $propertyValues = $this->propertyValues;
+$property = $this->property; ?>
+<h3><?php echo $this->escapeHtml($property); ?></h3>
+<ul>
+<?php foreach ($propertyValues as $propertyValue): ?>
+        <li>
+            <a href="<?php echo $this->url('/admin/' . $property, array('pv_id' => $propertyValue->getId())) ?>"><?php echo $this->escapeHtml($propertyValue->getValue()) ?></a>
+        </li>
+<?php endforeach; ?>
+</ul>
